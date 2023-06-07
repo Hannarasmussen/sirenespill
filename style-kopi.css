@@ -1,0 +1,63 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lato", sans-serif;
+}
+
+body,
+html {
+  height: 100%;
+  color: #000000;
+  line-height: 1.8;
+  background-color: #ffc107;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box.start-screen {
+  text-align: center;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: #ff8c00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+.button {
+  width: 100px;
+  height: 50px;
+  background-color: #ff8c00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.hidden {
+  display: none;
+}
