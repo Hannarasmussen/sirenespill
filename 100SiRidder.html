@@ -4,18 +4,50 @@
     <meta charset="UTF-8" />
     <title>100SiRidder</title>
     <link rel="stylesheet" type="text/css" href="style-kopi.css" />
-    <script src="spill.js"></script>
   </head>
 
   <body>
     <div class="site-container">
       <h1>100 Sirene og Ridder spørsmål</h1>
+      <script>
+        let currentQuestion = 0;
+        let totalQuestions = 0; // Variable to hold the total number of questions
 
-      <div class="box" id="boxContainer"></div>
+        async function loadQuestions() {
+          const response = await fetch("100questions.json");
+          const data = await response.json();
+          totalQuestions = data.length; // Assign the length of the data array to totalQuestions variable
+
+          loadQuestion();
+        }
+
+        async function loadQuestion() {
+          const response = await fetch("100questions.json");
+          const data = await response.json();
+          const mainBox = document.getElementById("mainBox");
+          mainBox.textContent = data[currentQuestion].question;
+        }
+
+        function navigate(direction) {
+          currentQuestion += direction;
+
+          if (currentQuestion < 0) {
+            currentQuestion = totalQuestions - 1;
+          } else if (currentQuestion >= totalQuestions) {
+            currentQuestion = 0;
+          }
+
+          loadQuestion();
+        }
+
+        loadQuestions();
+      </script>
+
+      <div class="box" id="mainBox"></div>
 
       <div class="button-container">
-        <div class="button" onclick="navigate(-1)">Previous</div>
-        <div class="button" onclick="navigate(1)">Next</div>
+        <div class="button" onclick="navigate(-1)">Forrige</div>
+        <div class="button" onclick="navigate(1)">Neste</div>
       </div>
     </div>
   </body>

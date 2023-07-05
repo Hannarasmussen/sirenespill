@@ -24,12 +24,6 @@ html {
   align-items: center;
 }
 
-.box.start-screen {
-  text-align: center;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
 .box {
   width: 200px;
   height: 200px;
@@ -42,10 +36,6 @@ html {
   margin: 20px;
 }
 
-.button-container {
-  display: flex;
-  justify-content: space-between;
-}
 .button {
   width: 100px;
   height: 50px;
@@ -56,8 +46,4 @@ html {
   text-align: center;
   cursor: pointer;
   margin: 10px;
-}
-
-.hidden {
-  display: none;
 }
