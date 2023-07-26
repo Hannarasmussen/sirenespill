@@ -1,24 +1,32 @@
 let currentQuestion = 0;
 let totalQuestions = 0;
+let questionData = [];
 
 async function loadQuestions() {
   try {
     const response = await fetch("sirenesips.json");
-    const data = await response.json();
-    totalQuestions = data.length;
+    questionData = await response.json();
+    totalQuestions = questionData.length;
 
-    const mainBox = document.getElementById("mainBox");
-    mainBox.textContent = data[currentQuestion].question;
+    loadQuestion();
   } catch (error) {
     console.error("Error loading questions:", error);
   }
 }
 
+function getRandomIndex(max) {
+  return Math.floor(Math.random() * max);
+}
+
 async function loadQuestion() {
-  const response = await fetch("sirenesips.json");
-  const data = await response.json();
   const mainBox = document.getElementById("mainBox");
-  mainBox.textContent = data[currentQuestion].question;
+
+  if (totalQuestions > 0) {
+    const randomIndex = getRandomIndex(totalQuestions);
+    mainBox.textContent = questionData[randomIndex].question;
+  } else {
+    mainBox.textContent = "No questions found.";
+  }
 }
 
 function navigate(direction) {
